@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const studentSchena = new mongoose.SchemaTypeOptions({
+const studentSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
@@ -19,4 +19,4 @@ const studentSchena = new mongoose.SchemaTypeOptions({
     },
 });
 
-export default mongoose.nodel("Student", studentSchema);
+export default mongoose.model("Student", studentSchema);

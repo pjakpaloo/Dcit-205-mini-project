@@ -4,7 +4,7 @@ dotenv.config();
 
 mongoose.set("strictQuery", false);
 
-const MONGO_URI = process.env.DEV_MONGO_URI;
+const MONGO_URI = process.env.MONGODB_URI ;
 
 const DBCONNECT = async () => {
     try{

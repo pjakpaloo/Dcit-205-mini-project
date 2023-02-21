@@ -1,29 +1,29 @@
-import Student from "../nodels/student.nodel";
+import Student from "../models/student.model.js";
 
 
 const CREATE_STUDENT = async (req,res) => {
-    const { fname, lname, programme, residence } = req.body;
+    const { fName, lName, programme, residence } = req.body;
 
-    if (!fName || !lname || !programme || !residence) {
+    if (!fName || !lName || !programme || !residence) {
         res.status(500).json({
             err: "make sure all fields are correct",
         });
     }
 
     const student = new Student({
-        firstname: fname,
-        lastname: lname,
+        firstName: fName,
+        lastName: lName,
         programme: programme,
         residence: residence,
     });
 
-    const response = await student.save{};
+    const response = await student.save();
 
     res.status(201).json(response);
 };
 
 const FIND_STUDENT = async (req, res) => {
-    const { id } = req.parans;
+    const { id } = req.params;
 
     const student = await Student.find({_id : id});
 
@@ -32,7 +32,7 @@ const FIND_STUDENT = async (req, res) => {
             err: "student not found",
         });
     }
-    res.status(200).json(student):
+    res.status(200).json(student)
 };
 
 export { CREATE_STUDENT, FIND_STUDENT };
